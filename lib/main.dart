@@ -1,11 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:get/get_navigation/src/root/get_material_app.dart';
 // import './onboarding_screen/screen/onborading_screen.dart';
 import './splash_screen/splash_screen.dart';
 import 'constant/color.dart';
+import 'firebase_options.dart';
+import 'package:firebase_core/firebase_core.dart';
 
-void main() {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+
   SystemChrome.setSystemUIOverlayStyle(
       const SystemUiOverlayStyle(statusBarColor: mainColor));
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp])
@@ -19,7 +26,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
       theme: ThemeData.dark().copyWith(useMaterial3: true),
       debugShowCheckedModeBanner: false,
       home: const SplashScreen(),

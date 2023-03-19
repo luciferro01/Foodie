@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get_navigation/get_navigation.dart';
 import 'package:get/state_manager.dart';
 import 'package:get/get_utils/get_utils.dart';
+import '../../authentication/authentication_home_screen.dart';
 import '/onboarding_screen/models/onboarding_screen_model.dart';
-// import '../../authentication/authentication_home_screen.dart';
 
 class OnboardingScreenController extends GetxController {
   var selectedPage = 0.obs;
@@ -14,18 +14,16 @@ class OnboardingScreenController extends GetxController {
   void forwardAction() {
     if (isLastPage) {
       // pageController.animateToPage(0,
-      //     duration: 400.milliseconds, curve: Curves.decelerate);
-
-      //To be changed
-      // Get.to(
-      //     // () => LogInPage(),
-      //     );
-    } else if (selectedPage.value == pageController.initialPage) {
+      //     duration: 400.milliseconds, curve: Curves.decelerate);\
+      Get.off(
+        () => const AuthScreen(),
+      );
+    } else if (selectedPage.value == pageController.initialPage ||
+        selectedPage.value == 0) {
       pageController.nextPage(
           duration: 300.milliseconds, curve: Curves.easeInBack);
     } else {
-      pageController.nextPage(
-          duration: 300.milliseconds, curve: Curves.easeInBack);
+      pageController.nextPage(duration: 300.milliseconds, curve: Curves.easeIn);
     }
   }
 
@@ -36,9 +34,9 @@ class OnboardingScreenController extends GetxController {
 
   List<OnboradingScreenModel> onboardingModelList = const [
     OnboradingScreenModel(
-        image: 'assets/onboarding_screen/superman.png',
-        title: 'Welome to Super App',
-        description: 'A project by MOHIL BANSAL'),
+        image: 'assets/onboarding_screen/welcome.png',
+        title: 'Welome to the Foodie',
+        description: 'A project by Team Mighty Eagle'),
     OnboradingScreenModel(
         image: 'assets/onboarding_screen/tools.png',
         title: 'An App for all',

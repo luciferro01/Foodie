@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
 import 'package:get/get_utils/get_utils.dart';
 import '../controller/onborading_screen_controller.dart';
-import '../../constant/color.dart';
+// import '../../constant/color.dart';
 
 class OnboardingScreen extends StatefulWidget {
   const OnboardingScreen({super.key});
