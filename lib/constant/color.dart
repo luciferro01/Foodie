@@ -14,3 +14,6 @@ LinearGradient mainScreenColor = const LinearGradient(
 );
 const Color secondaryColor = Color(0xffF6BD17);
 const Color fadedColor = Color(0xff817272);
+const Color primaryCircleColor = Color(0xffF5D26B);
+const Color secondaryCircleColor = Color(0xffF6BD17);
+const Color softWhite = Color(0xfffbfaf5);

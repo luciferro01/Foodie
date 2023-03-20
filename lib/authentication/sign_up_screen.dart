@@ -108,7 +108,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
     // if (user.user != null) {
     //   Get.to(() => HomeScreen());
     // }
-    Get.to(() => HomeScreen());
+    Get.to(() => LoggInUserScreen());
   }
 
   @override

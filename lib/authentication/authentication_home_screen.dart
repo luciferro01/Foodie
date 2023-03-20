@@ -108,7 +108,7 @@ class _AuthScreenState extends State<AuthScreen> {
     // if (user.user!.uid != null) {
     //   Get.to(HomeScreen());
     // }
-    Get.to(HomeScreen());
+    Get.to(LoggInUserScreen());
   }
 
   @override

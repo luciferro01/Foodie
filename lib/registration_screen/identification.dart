@@ -3,19 +3,19 @@ import 'package:foodie/constant/color.dart';
 import 'package:foodie/constant/styles.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-enum card { donate, ngo }
+enum Card { donate, ngo }
 
-class Registeration extends StatefulWidget {
-  Registeration({super.key});
+class Identification extends StatefulWidget {
+  const Identification({super.key});
 
   @override
-  State<Registeration> createState() => _RegisterationState();
+  State<Identification> createState() => _IdentificationState();
 }
 
-class _RegisterationState extends State<Registeration> {
+class _IdentificationState extends State<Identification> {
   Color inactive = Colors.transparent;
   Color active = secondaryColor;
-  card selectedCard = card.ngo;
+  Card selectedCard = Card.ngo;
 
   bool selectedDonate = true;
 
@@ -33,7 +33,7 @@ class _RegisterationState extends State<Registeration> {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 const Spacer(),
-                Text('Tells us about yourself', style: highlightedTextStyle),
+                Text('Tell us about yourself', style: highlightedTextStyle),
                 Text('Choose what you like', style: fadedTextStyle),
                 SizedBox(
                   height: MediaQuery.of(context).size.height * 0.2,
@@ -47,13 +47,13 @@ class _RegisterationState extends State<Registeration> {
                         GestureDetector(
                           onTap: () {
                             setState(() {
-                              selectedCard = card.donate;
+                              selectedCard = Card.donate;
                             });
                           },
                           child: CircleAvatar(
                             radius: 44,
                             backgroundColor:
-                                selectedCard == card.donate ? active : inactive,
+                                selectedCard == Card.donate ? active : inactive,
                             child: Image.asset('assets/icons/donate.png'),
                           ),
                         ),
@@ -82,13 +82,13 @@ class _RegisterationState extends State<Registeration> {
                         GestureDetector(
                           onTap: () {
                             setState(() {
-                              selectedCard = card.ngo;
+                              selectedCard = Card.ngo;
                             });
                           },
                           child: CircleAvatar(
                             radius: 44,
                             backgroundColor:
-                                selectedCard == card.ngo ? active : inactive,
+                                selectedCard == Card.ngo ? active : inactive,
                             child: Image.asset('assets/icons/ngo.png'),
                           ),
                         ),
