@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:foodie/screens/account_screen.dart';
 import 'package:foodie/screens/home_screen.dart';
 // import 'package:foodie/registration_screen/identification.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
@@ -33,7 +34,7 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       theme: ThemeData.dark().copyWith(useMaterial3: true),
       debugShowCheckedModeBanner: false,
-      home: const HomeScreen(),
+      home: AccountScreen(),
     );
   }
 }

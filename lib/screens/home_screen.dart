@@ -25,24 +25,50 @@ class HomeScreen extends StatelessWidget {
             'FOODIES',
             style: labelTextStyle,
           ),
+          actions: const [
+            Icon(
+              Icons.account_circle_rounded,
+            ),
+          ],
           centerTitle: true,
         ),
         body: Column(
           children: [
-            Stack(
-              children: [
-                Container(
-                  height: MediaQuery.of(context).size.height * 0.1,
-                  width: MediaQuery.of(context).size.width * 0.1,
-                  decoration:
-                      BoxDecoration(borderRadius: BorderRadius.circular(20)),
-                )
-              ],
+            SizedBox(
+              height: MediaQuery.of(context).size.height * 0.03,
             ),
-            // ListView.builder(
-            //   itemCount: 3,
-            //   itemBuilder: (BuildContext context, int index) {},
-            // ),
+            Container(
+              margin: const EdgeInsets.only(right: 35),
+              child: TextField(
+                decoration: InputDecoration(
+                  contentPadding: const EdgeInsets.all(0),
+                  icon: const Icon(Icons.search),
+                  hintText: 'Search Anything',
+                  // border: BorderRadius.circular(20)),
+                  // border:
+                  enabledBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(20),
+                    borderSide: const BorderSide(
+                      width: 1,
+                      color: Colors.grey,
+                    ),
+                  ),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(20),
+                    borderSide: const BorderSide(
+                      style: BorderStyle.solid,
+                      color: Colors.black,
+                      width: 1,
+                    ),
+                  ),
+                  hintStyle: fadedTextStyle,
+                  prefixIcon: const Icon(Icons.search),
+                  prefixIconColor: Colors.black,
+                  // prefixStyle: TextStyle(color: Colors.black),
+                ),
+                style: labelTextStyle,
+              ),
+            ),
           ],
         ),
       ),
