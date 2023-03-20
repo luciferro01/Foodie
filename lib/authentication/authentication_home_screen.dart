@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:foodie/registration_screen/identification.dart';
+import 'package:foodie/screens/home_screen.dart';
 import 'package:get/route_manager.dart';
 import 'controller/authenticatin_controller.dart';
 import 'forgot_screen.dart';
-import 'logged_in_user_screen.dart';
+// import 'logged_in_user_screen.dart';
 import 'sign_up_screen.dart';
 import '../constant/color.dart';
 
@@ -27,17 +29,18 @@ class _AuthScreenState extends State<AuthScreen> {
     color: Colors.black,
   );
   bool obscure = true;
-  late UserCredential user;
+  late UserCredential users;
   void logIn() async {
     FormState formState = _formKey.currentState!;
     try {
       if (formState.validate()) {
         formState.save();
         // ignore: unused_local_variable
-        user = await FirebaseAuth.instance.signInWithEmailAndPassword(
+        var user = await FirebaseAuth.instance.signInWithEmailAndPassword(
           email: emailController.trim(),
           password: passwordController.trim(),
         );
+        users = user;
         // if(user)
       }
     } on FirebaseAuthException catch (e) {
@@ -102,20 +105,24 @@ class _AuthScreenState extends State<AuthScreen> {
           break;
       }
     }
-    // var currentUser = FirebaseAuth.instance.currentUser!;
+    User? currentUser = FirebaseAuth.instance.currentUser;
     // ignore: avoid_print
-    print(user);
-    // if (user.user!.uid != null) {
+    // print(user);
+    String? userId = currentUser?.uid;
+    if (currentUser?.uid != null) {
+      Get.to(() => const Identification());
+    }
+    // if (users.user.uid != null) {
     //   Get.to(HomeScreen());
     // }
-    Get.to(LoggInUserScreen());
+    // Get.to(LoggInUserScreen());
   }
 
   @override
   Widget build(BuildContext context) {
     return SafeArea(
         child: Scaffold(
-      backgroundColor: kBackgroundColor,
+      backgroundColor: primaryCircleColor,
       body: SingleChildScrollView(
         child: Container(
           padding: const EdgeInsets.all(30),
@@ -139,7 +146,7 @@ class _AuthScreenState extends State<AuthScreen> {
                   SizedBox(
                       height: 40,
                       width: 40,
-                      child: Image.asset("assets/icons/app-store.png")),
+                      child: Image.asset("assets/images/foodie_logo.png")),
                 ],
               ),
               SizedBox(
@@ -293,8 +300,8 @@ class _AuthScreenState extends State<AuthScreen> {
                           right: 35,
                         ),
                         minimumSize: const Size.fromHeight(50),
-                        backgroundColor: kButtonBackgroundColor,
-                        foregroundColor: kButtonforegroundColor,
+                        backgroundColor: mainColor,
+                        // foregroundColor: kButtonforegroundColor,
                         elevation: 10,
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(10),

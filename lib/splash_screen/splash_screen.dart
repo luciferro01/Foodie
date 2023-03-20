@@ -42,7 +42,7 @@ class _SplashScreenState extends State<SplashScreen> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Image.asset(
-              "assets/icons/app-store.png",
+              "assets/images/foodie_logo.png",
               width: MediaQuery.of(context).size.width * 0.4,
               // height: 200,
               // width: 200,

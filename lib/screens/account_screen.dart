@@ -3,6 +3,7 @@ import 'package:foodie/constant/color.dart';
 import 'package:foodie/constant/styles.dart';
 import '../models/account_items_model.dart';
 
+// ignore: must_be_immutable
 class AccountScreen extends StatelessWidget {
   AccountScreen({super.key});
   List<AccountItems> items = [

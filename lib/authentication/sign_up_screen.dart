@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:foodie/registration_screen/identification.dart';
 import 'package:get/route_manager.dart';
 import '../constant/color.dart';
 import 'authentication_home_screen.dart';
 import 'controller/authenticatin_controller.dart';
-import 'logged_in_user_screen.dart';
+// import 'logged_in_user_screen.dart';
 // import '../../constants/.dart';
 
 // ignore: must_be_immutable
@@ -19,7 +20,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   String passwordController = '';
   String emailController = '';
-  String confirmPasswordController = ' ';
+  String confirmPasswordController = '';
   bool visibility = false;
   Icon icon = const Icon(
     Icons.remove_red_eye,
@@ -28,17 +29,22 @@ class _SignUpScreenState extends State<SignUpScreen> {
   bool obscure = true;
   late UserCredential user;
   void signUp() async {
+    // print('Sign Up Button Pressed');
     FormState formState = _formKey.currentState!;
     try {
       if (formState.validate()) {
         formState.save();
         // ignore: unused_local_variable
-        if (passwordController == confirmPasswordController) {
-          user = await FirebaseAuth.instance.createUserWithEmailAndPassword(
-            email: emailController.trim(),
-            password: passwordController.trim(),
-          );
-        }
+        user = await FirebaseAuth.instance.createUserWithEmailAndPassword(
+          email: emailController.trim(),
+          password: passwordController.trim(),
+        );
+        // if (passwordController == confirmPasswordController) {
+        //   user = await FirebaseAuth.instance.createUserWithEmailAndPassword(
+        //     email: emailController.trim(),
+        //     password: passwordController.trim(),
+        //   );
+        // }
       }
     } on FirebaseAuthException catch (e) {
       //ignore:, avoid_print
@@ -108,14 +114,20 @@ class _SignUpScreenState extends State<SignUpScreen> {
     // if (user.user != null) {
     //   Get.to(() => HomeScreen());
     // }
-    Get.to(() => LoggInUserScreen());
+    User? currentUser = FirebaseAuth.instance.currentUser;
+    print(currentUser);
+    // String? userId = currentUser?.uid;
+    if (currentUser?.uid != null) {
+      Get.to(() => const AuthScreen());
+    }
+    // Get.to(() => const AuthScreen());
   }
 
   @override
   Widget build(BuildContext context) {
     return SafeArea(
         child: Scaffold(
-      backgroundColor: kBackgroundColor,
+      backgroundColor: primaryCircleColor,
       body: SingleChildScrollView(
         child: Container(
           padding: const EdgeInsets.all(30),
@@ -139,7 +151,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   SizedBox(
                       height: 40,
                       width: 40,
-                      child: Image.asset("assets/test_app.png")),
+                      child: Image.asset("assets/images/foodie_logo.png")),
                 ],
               ),
               SizedBox(

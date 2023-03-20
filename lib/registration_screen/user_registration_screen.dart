@@ -8,6 +8,7 @@ import 'package:get/route_manager.dart';
 
 import '../screens/home_screen.dart';
 
+// ignore: must_be_immutable
 class UserRegistration extends StatelessWidget {
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
   UserRegistration({super.key});
@@ -95,6 +96,7 @@ class UserRegistration extends StatelessWidget {
                             onSaved: (input) => name = input!,
                             style: fieldTextStyle,
                             decoration: InputDecoration(
+                              // enabled: true,
                               prefixIcon: const Icon(
                                 Icons.person,
                                 color: Colors.black,
@@ -103,7 +105,9 @@ class UserRegistration extends StatelessWidget {
                                   horizontal: 10, vertical: 6),
                               border: OutlineInputBorder(
                                 borderSide: const BorderSide(
-                                    color: Color.fromARGB(253, 108, 207, 243)),
+                                  color: Colors.black,
+                                  width: 1,
+                                ),
                                 borderRadius: BorderRadius.circular(10),
                               ),
                               focusColor:
@@ -113,12 +117,13 @@ class UserRegistration extends StatelessWidget {
                                   color: Colors.black,
                                 ),
                               ),
+                              hintText: 'MOHIL BANSAL',
+                              hintStyle: fadedTextStyle,
                             ),
                           ),
                         ),
                         SizedBox(
-                          height: MediaQuery.of(context).size.height * 0.04,
-                        ),
+                            height: MediaQuery.of(context).size.height * 0.02),
                         Text('E-mail', style: labelTextStyle),
                         SizedBox(
                           width: MediaQuery.of(context).size.width * 0.8,
@@ -153,14 +158,15 @@ class UserRegistration extends StatelessWidget {
                                   color: Colors.black,
                                 ),
                               ),
+                              hintText: 'mohil1111bansal@gmail.com',
+                              hintStyle: fadedTextStyle,
                             ),
                             cursorColor: Colors.black,
                             cursorHeight: 20,
                           ),
                         ),
                         SizedBox(
-                          height: MediaQuery.of(context).size.height * 0.04,
-                        ),
+                            height: MediaQuery.of(context).size.height * 0.02),
                         Text(
                           'Phone Number',
                           style: labelTextStyle,
@@ -198,12 +204,13 @@ class UserRegistration extends StatelessWidget {
                                   color: Colors.black,
                                 ),
                               ),
+                              hintText: '7737102961',
+                              hintStyle: fadedTextStyle,
                             ),
                           ),
                         ),
                         SizedBox(
-                          height: MediaQuery.of(context).size.height * 0.04,
-                        ),
+                            height: MediaQuery.of(context).size.height * 0.02),
                         Text(
                           'Address',
                           style: labelTextStyle,
@@ -239,14 +246,16 @@ class UserRegistration extends StatelessWidget {
                                   color: Colors.black,
                                 ),
                               ),
+                              hintText: 'Near Old Bus Stand, Kumher',
+                              hintStyle: fadedTextStyle,
                             ),
                           ),
                         ),
+                        // SizedBox(
+                        //   height: MediaQuery.of(context).size.width * 0.06,
+                        // ),
                         SizedBox(
-                          height: MediaQuery.of(context).size.width * 0.06,
-                        ),
-                        SizedBox(
-                          height: MediaQuery.of(context).size.height * 0.04,
+                          height: MediaQuery.of(context).size.height * 0.02,
                         ),
                         Text(
                           'Pin Code',
@@ -283,12 +292,13 @@ class UserRegistration extends StatelessWidget {
                                   color: Colors.black,
                                 ),
                               ),
+                              hintText: '321201',
+                              hintStyle: fadedTextStyle,
                             ),
                           ),
                         ),
                         SizedBox(
-                          height: MediaQuery.of(context).size.height * 0.04,
-                        ),
+                            height: MediaQuery.of(context).size.height * 0.02),
                         ElevatedButton(
                           onPressed: signUp,
                           style: ElevatedButton.styleFrom(

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:foodie/constant/color.dart';
 import 'package:foodie/constant/styles.dart';
+import 'package:foodie/registration_screen/user_registration_screen.dart';
+// import 'package:get/get_navigation/get_navigation.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 enum Card { donate, ngo }
@@ -134,15 +136,26 @@ class _IdentificationState extends State<Identification> {
                     Positioned(
                       bottom: MediaQuery.of(context).size.height * 0.02,
                       left: MediaQuery.of(context).size.height * 0.14,
-                      child: Text(
-                        'I need some Food',
-                        style: GoogleFonts.poppins(
-                          color: Colors.black,
-                          fontSize: 20,
-                          fontWeight: FontWeight.w500,
+                      child: GestureDetector(
+                        onTap: () {
+                          Navigator.of(context).push(
+                            MaterialPageRoute(
+                              builder: ((context) {
+                                return UserRegistration();
+                              }),
+                            ),
+                          );
+                        },
+                        child: Text(
+                          'I need some Food',
+                          style: GoogleFonts.poppins(
+                            color: Colors.black,
+                            fontSize: 20,
+                            fontWeight: FontWeight.w500,
+                          ),
                         ),
                       ),
-                    )
+                    ),
                   ],
                 )
               ],

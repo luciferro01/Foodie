@@ -26,8 +26,13 @@ class HomeScreen extends StatelessWidget {
             style: labelTextStyle,
           ),
           actions: const [
-            Icon(
-              Icons.account_circle_rounded,
+            Padding(
+              padding: EdgeInsets.all(10),
+              child: Icon(
+                Icons.account_circle_rounded,
+                color: Colors.black,
+                size: 40,
+              ),
             ),
           ],
           centerTitle: true,

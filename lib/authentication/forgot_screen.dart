@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:foodie/constant/color.dart';
 import 'package:get/route_manager.dart';
 
 // ignore: must_be_immutable
@@ -44,7 +45,7 @@ class ForgotScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: const Color(0xFFB9F3FC),
+        backgroundColor: secondaryCircleColor,
         body: SingleChildScrollView(
           child: Container(
             padding: const EdgeInsets.all(30),
@@ -68,7 +69,7 @@ class ForgotScreen extends StatelessWidget {
                     SizedBox(
                         height: 40,
                         width: 40,
-                        child: Image.asset("assets/test_app.png")),
+                        child: Image.asset("assets/images/foodie_logo.png")),
                   ],
                 ),
                 SizedBox(
@@ -138,8 +139,8 @@ class ForgotScreen extends StatelessWidget {
                             right: 35,
                           ),
                           minimumSize: const Size.fromHeight(50),
-                          backgroundColor: const Color(0xFFD3B177),
-                          foregroundColor: Colors.redAccent,
+                          backgroundColor: mainColor,
+                          // foregroundColor: Colors.redAccent,
                           elevation: 10,
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(10),

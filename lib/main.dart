@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:foodie/screens/account_screen.dart';
-import 'package:foodie/screens/home_screen.dart';
+// import 'package:foodie/screens/account_screen.dart';
+// import 'package:foodie/screens/home_screen.dart';
 // import 'package:foodie/registration_screen/identification.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 // import './onboarding_screen/screen/onborading_screen.dart';
-// import './splash_screen/splash_screen.dart';
+import './splash_screen/splash_screen.dart';
 import 'constant/color.dart';
 import 'firebase_options.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -34,7 +34,7 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       theme: ThemeData.dark().copyWith(useMaterial3: true),
       debugShowCheckedModeBanner: false,
-      home: AccountScreen(),
+      home: const SplashScreen(),
     );
   }
 }
