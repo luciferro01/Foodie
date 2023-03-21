@@ -73,7 +73,7 @@ class _IdentificationState extends State<Identification> {
                           height: MediaQuery.of(context).size.height * 0.01,
                         ),
                         Text(
-                          'Want to Donate food',
+                          'Donate Food',
                           style: GoogleFonts.poppins(
                               color: fadedColor, fontSize: 16),
                         )

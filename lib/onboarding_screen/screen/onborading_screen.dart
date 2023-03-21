@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:foodie/constant/color.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
 import 'package:get/get_utils/get_utils.dart';
 import '../controller/onborading_screen_controller.dart';
@@ -20,16 +21,17 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
         child: Container(
       // color: Color(#FEDEFF),
       decoration: const BoxDecoration(
-        gradient: LinearGradient(
-            // colors: [Color(0xffF9F9F9), Color(0xffffd6d6)],
-            // colors: [Color(0xffF9F9F9), Color(0xfff9cdc3), Color(0xfffacefb)],
-            colors: [
-              Color(0xfff5cbd9),
-              Color(0xfff4bccd),
-              Color(0xffcacff9),
-            ],
-            begin: Alignment.topLeft,
-            end: Alignment.bottomRight),
+        color: mainColor,
+        // gradient: LinearGradient(
+        //     // colors: [Color(0xffF9F9F9), Color(0xffffd6d6)],
+        //     // colors: [Color(0xffF9F9F9), Color(0xfff9cdc3), Color(0xfffacefb)],
+        //     colors: [
+        //       Color(0xfff5cbd9),
+        //       Color(0xfff4bccd),
+        //       Color(0xffcacff9),
+        //     ],
+        //     begin: Alignment.topLeft,
+        //     end: Alignment.bottomRight),
         // color: mainColor,
       ),
       padding: const EdgeInsets.only(bottom: 20, right: 20, left: 20),

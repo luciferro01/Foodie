@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:foodie/constant/color.dart';
 import '../onboarding_screen/screen/onborading_screen.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -35,7 +36,7 @@ class _SplashScreenState extends State<SplashScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        color: const Color(0xFFB9F3FC),
+        color: mainColor,
         width: double.infinity,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,

@@ -14,7 +14,7 @@ class NavigationScreen extends StatefulWidget {
 }
 
 class _NavigationScreenState extends State<NavigationScreen> {
-  List screens = [HomeScreen(), const DonateScreen(), AccountScreen()];
+  List screens = [HomeScreen(), DonateScreen(), AccountScreen()];
   int activeScreen = 0;
   @override
   Widget build(BuildContext context) {

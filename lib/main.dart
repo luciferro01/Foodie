@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:foodie/screens/home_screen.dart';
+// import 'package:foodie/screens/home_screen.dart';
 import 'package:foodie/screens/navigation_screen.dart';
 // import 'package:foodie/screens/account_screen.dart';
 // import 'package:foodie/screens/home_screen.dart';
@@ -11,7 +11,7 @@ import './splash_screen/splash_screen.dart';
 import 'constant/color.dart';
 import 'firebase_options.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+// import 'package:shared_preferences/shared_preferences.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 // import 'registration_screen/user_registration_screen.dart';

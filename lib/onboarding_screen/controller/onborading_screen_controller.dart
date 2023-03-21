@@ -38,19 +38,16 @@ class OnboardingScreenController extends GetxController {
         title: 'Welome to the Foodie',
         description: 'A project by Team Mighty Eagle'),
     OnboradingScreenModel(
-        image: 'assets/onboarding_screen/tools.png',
-        title: 'An App for all',
-        description:
-            'Contains all the basic tools required by you to add productivity in your life & make your life easier.'),
+        image: 'assets/onboarding_screen/dont.png',
+        title: 'Donate Food',
+        description: 'Don' 't be rude, donate Food'),
     OnboradingScreenModel(
-        image: 'assets/onboarding_screen/relaxed.png',
-        title: 'Intutive',
-        description:
-            'A user friendly, easy to use, bug-free(😉) app to give wings to your ideas.'),
-    OnboradingScreenModel(
-        image: 'assets/onboarding_screen/globe_cut.png',
-        title: ' Enter into the world',
-        description:
-            'Are you ready to enter into the world of productivity? So, yes enter to the world.')
+        image: 'assets/onboarding_screen/connect.png',
+        title: 'Connect People',
+        description: 'Connect People, Help People'),
+    // OnboradingScreenModel(
+    //     image: 'assets/onboarding_screen/globe_cut.png',
+    //     title: ' Enter into the world of Donation',
+    //     description: 'Thanks a lot for helping people')
   ];
 }
