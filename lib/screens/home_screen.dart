@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:foodie/constant/color.dart';
 import 'package:foodie/constant/styles.dart';
+import 'package:foodie/screens/account_screen.dart';
+import 'package:foodie/screens/org_details.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../models/home_screen_widget.dart';
@@ -71,13 +73,25 @@ class HomeScreen extends StatelessWidget {
             'FOODIES',
             style: labelTextStyle,
           ),
-          actions: const [
+          actions: [
             Padding(
-              padding: EdgeInsets.all(10),
-              child: Icon(
-                Icons.account_circle_rounded,
-                color: Colors.black,
-                size: 40,
+              padding: const EdgeInsets.only(bottom: 10),
+              child: IconButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) {
+                        return AccountScreen();
+                      },
+                    ),
+                  );
+                },
+                icon: const Icon(
+                  Icons.account_circle_rounded,
+                  color: Colors.black,
+                  size: 40,
+                ),
               ),
             ),
           ],
@@ -124,46 +138,59 @@ class HomeScreen extends StatelessWidget {
               child: ListView.builder(
                 itemCount: homeScreenList.length,
                 itemBuilder: (BuildContext context, index) {
-                  return Container(
-                    margin: const EdgeInsets.all(15),
-                    height: MediaQuery.of(context).size.height * 0.3,
-                    decoration: BoxDecoration(
-                      color: secondaryCircleColor,
-                      borderRadius: BorderRadius.circular(20),
-                    ),
-                    child: Column(children: [
-                      Container(
-                        // height: MediaQuery.of(context).size.height * 0.26,
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(20)),
-                        child: Image.network(
-                          homeScreenList[index].image,
-                          fit: BoxFit.fitWidth,
-                        ),
+                  return GestureDetector(
+                    onTap: () => Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) {
+                          return OrgDetails(
+                            image: homeScreenList[index].image,
+                            name: homeScreenList[index].name,
+                          );
+                        },
                       ),
-                      Padding(
-                        padding: const EdgeInsets.only(left: 10, right: 10),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text(
-                              homeScreenList[index].address,
-                              style: GoogleFonts.poppins(
-                                fontSize: 20,
-                                color: Colors.black,
-                              ),
-                            ),
-                            Text(
-                              homeScreenList[index].distance,
-                              style: GoogleFonts.poppins(
-                                fontSize: 20,
-                                color: Colors.black,
-                              ),
-                            )
-                          ],
+                    ),
+                    child: Container(
+                      margin: const EdgeInsets.all(15),
+                      height: MediaQuery.of(context).size.height * 0.3,
+                      decoration: BoxDecoration(
+                        color: mainColor,
+                        borderRadius: BorderRadius.circular(20),
+                      ),
+                      child: Column(children: [
+                        Container(
+                          // height: MediaQuery.of(context).size.height * 0.26,
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(20)),
+                          child: Image.network(
+                            homeScreenList[index].image,
+                            fit: BoxFit.fitWidth,
+                          ),
                         ),
-                      )
-                    ]),
+                        Padding(
+                          padding: const EdgeInsets.only(left: 10, right: 10),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+                                homeScreenList[index].address,
+                                style: GoogleFonts.poppins(
+                                  fontSize: 20,
+                                  color: Colors.black,
+                                ),
+                              ),
+                              Text(
+                                homeScreenList[index].distance,
+                                style: GoogleFonts.poppins(
+                                  fontSize: 20,
+                                  color: Colors.black,
+                                ),
+                              )
+                            ],
+                          ),
+                        )
+                      ]),
+                    ),
                   );
                 },
               ),
