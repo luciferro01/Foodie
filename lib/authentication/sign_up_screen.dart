@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:foodie/registration_screen/identification.dart';
+// import 'package:foodie/registration_screen/identification.dart';
 import 'package:get/route_manager.dart';
 import '../constant/color.dart';
 import 'authentication_home_screen.dart';
@@ -115,6 +115,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
     //   Get.to(() => HomeScreen());
     // }
     User? currentUser = FirebaseAuth.instance.currentUser;
+    // ignore: avoid_print
     print(currentUser);
     // String? userId = currentUser?.uid;
     if (currentUser?.uid != null) {

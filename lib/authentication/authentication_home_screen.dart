@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:foodie/registration_screen/identification.dart';
-import 'package:foodie/screens/home_screen.dart';
 import 'package:get/route_manager.dart';
 import 'controller/authenticatin_controller.dart';
 import 'forgot_screen.dart';
@@ -108,6 +107,7 @@ class _AuthScreenState extends State<AuthScreen> {
     User? currentUser = FirebaseAuth.instance.currentUser;
     // ignore: avoid_print
     // print(user);
+    // ignore: unused_local_variable
     String? userId = currentUser?.uid;
     if (currentUser?.uid != null) {
       Get.to(() => const Identification());

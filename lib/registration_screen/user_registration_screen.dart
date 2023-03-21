@@ -1,12 +1,8 @@
-// ignore_for_file: avoid_print
-
 import 'package:flutter/material.dart';
-// import 'package:foodie/authentication/logged_in_usser_screen.dart';
 import 'package:foodie/constant/color.dart';
 import 'package:foodie/constant/styles.dart';
+import 'package:foodie/screens/navigation_screen.dart';
 import 'package:get/route_manager.dart';
-
-import '../screens/home_screen.dart';
 
 // ignore: must_be_immutable
 class UserRegistration extends StatelessWidget {
@@ -22,7 +18,7 @@ class UserRegistration extends StatelessWidget {
     try {
       if (formState.validate()) {
         formState.save();
-        Get.off(() => const HomeScreen());
+        Get.off(() => const NavigationScreen());
       }
     } catch (e) {
       print(e);
