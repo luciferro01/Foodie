@@ -29,18 +29,21 @@ class _NavigationScreenState extends State<NavigationScreen> {
           // animationCurve: ,
           buttonBackgroundColor: softWhite,
           backgroundColor: primaryCircleColor,
-          items: const [
-            Icon(
+          items: [
+            const Icon(
               Icons.home_filled,
               color: Colors.black,
               size: 30,
             ),
-            Icon(
-              Icons.abc,
-              color: Colors.black,
-              size: 30,
+            // Icon(
+            //   Icons.abc,
+            //   color: Colors.black,
+            //   size: 30,
+            // ),
+            Image.asset(
+              "assets/icons/donate.png",
             ),
-            Icon(
+            const Icon(
               Icons.account_circle_rounded,
               color: Colors.black,
               size: 30,

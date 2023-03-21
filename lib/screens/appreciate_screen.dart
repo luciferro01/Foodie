@@ -51,7 +51,7 @@ class AppreciateScreen extends StatelessWidget {
         ],
         centerTitle: true,
       ),
-      body: Container(
+      body: SizedBox(
         width: double.infinity,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,

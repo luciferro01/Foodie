@@ -66,9 +66,9 @@ class AccountScreen extends StatelessWidget {
                   ),
                   Positioned(
                     bottom: 0,
-                    left: MediaQuery.of(context).size.width * 0.3,
+                    left: MediaQuery.of(context).size.width * 0.34,
                     child: Text(
-                      'MOHIL BANSAL',
+                      'Hello !! User',
                       style: labelTextStyle,
                     ),
                   ),

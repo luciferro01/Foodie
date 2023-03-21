@@ -30,6 +30,7 @@ void main() async {
   });
 }
 
+// ignore: must_be_immutable
 class MyApp extends StatelessWidget {
   MyApp({super.key});
   var currentUser = FirebaseAuth.instance.currentUser;

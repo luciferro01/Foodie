@@ -21,6 +21,7 @@ class UserRegistration extends StatelessWidget {
         Get.off(() => const NavigationScreen());
       }
     } catch (e) {
+      // ignore: avoid_print
       print(e);
     }
   }

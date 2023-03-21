@@ -24,6 +24,7 @@ class DonateScreen extends StatelessWidget {
         Get.off(() => const AppreciateScreen());
       }
     } catch (e) {
+      // ignore: avoid_print
       print(e);
     }
   }
@@ -63,7 +64,7 @@ class DonateScreen extends StatelessWidget {
                     top: MediaQuery.of(context).size.height * 0.14,
                     left: MediaQuery.of(context).size.height * 0.1,
                     child: Text(
-                      'User Details',
+                      'Donation Details',
                       style: highlightedTextStyle,
                     ),
                   ),

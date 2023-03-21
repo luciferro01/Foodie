@@ -54,7 +54,7 @@ class _SplashScreenState extends State<SplashScreen> {
             Hero(
               tag: 'App Name',
               child: Text(
-                "Super App",
+                "Foodie",
                 style: Theme.of(context)
                     .textTheme
                     .titleLarge!

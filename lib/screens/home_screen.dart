@@ -7,6 +7,7 @@ import 'package:google_fonts/google_fonts.dart';
 
 import '../models/home_screen_widget.dart';
 
+// ignore: must_be_immutable
 class HomeScreen extends StatelessWidget {
   HomeScreen({super.key});
 
