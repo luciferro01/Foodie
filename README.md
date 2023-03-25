@@ -1,4 +1,5 @@
-# foodie
+# The Support for this app has been waived off, No further #Updates will be provided
+# Foodie
 
 A new Flutter project.
 
