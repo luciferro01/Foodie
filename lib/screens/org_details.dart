@@ -77,7 +77,7 @@ class OrgDetails extends StatelessWidget {
               style: labelTextStyle,
             ),
             Container(
-              padding: EdgeInsets.all(10),
+              padding: const EdgeInsets.all(10),
               decoration: BoxDecoration(
                 color: primaryCircleColor,
                 borderRadius: BorderRadius.circular(20),

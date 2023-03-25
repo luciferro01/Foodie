@@ -5,6 +5,7 @@ import 'package:get/route_manager.dart';
 import '../constant/color.dart';
 import '../constant/styles.dart';
 
+// ignore: must_be_immutable
 class DonateScreen extends StatelessWidget {
   DonateScreen({super.key});
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
