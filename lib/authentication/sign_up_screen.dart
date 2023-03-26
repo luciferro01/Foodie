@@ -5,6 +5,7 @@ import 'package:get/route_manager.dart';
 import '../constant/color.dart';
 import 'authentication_home_screen.dart';
 import 'controller/authenticatin_controller.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 // import 'logged_in_user_screen.dart';
 // import '../../constants/.dart';
 
@@ -22,6 +23,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
   String emailController = '';
   String confirmPasswordController = '';
   bool visibility = false;
+
   Icon icon = const Icon(
     Icons.remove_red_eye,
     color: Colors.black,
@@ -119,6 +121,15 @@ class _SignUpScreenState extends State<SignUpScreen> {
     print(currentUser);
     // String? userId = currentUser?.uid;
     if (currentUser?.uid != null) {
+      var docRef = FirebaseFirestore.instance
+          .collection('users')
+          .doc('$emailController');
+      Map<String, dynamic> logInData = {
+        'email': emailController,
+        'password': passwordController,
+      };
+
+      await docRef.set(logInData);
       Get.to(() => const AuthScreen());
     }
     // Get.to(() => const AuthScreen());
