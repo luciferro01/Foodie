@@ -1,3 +1,5 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:foodie/constant/color.dart';
 import 'package:foodie/constant/styles.dart';
@@ -6,18 +8,31 @@ import 'package:get/route_manager.dart';
 
 // ignore: must_be_immutable
 class UserRegistration extends StatelessWidget {
+  final String email;
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
-  UserRegistration({super.key});
-  String emailController = '';
+  UserRegistration({required this.email, super.key});
+  // String emailController = '';
   String name = '';
   String address = '';
   String pinCode = '';
   String mobileNumber = '';
+
   void signUp() async {
     FormState formState = formKey.currentState!;
     try {
       if (formState.validate()) {
         formState.save();
+        Map<String, dynamic> userRegistrationMap = {
+          // 'email': emailController,
+          'name': name,
+          'address': address,
+          'pincode': pinCode,
+          'mobileNumber': mobileNumber,
+        };
+        FirebaseFirestore.instance
+            .collection('users')
+            .doc(email)
+            .update(userRegistrationMap);
         Get.off(() => const NavigationScreen());
       }
     } catch (e) {
@@ -121,49 +136,49 @@ class UserRegistration extends StatelessWidget {
                         ),
                         SizedBox(
                             height: MediaQuery.of(context).size.height * 0.02),
-                        Text('E-mail', style: labelTextStyle),
-                        SizedBox(
-                          width: MediaQuery.of(context).size.width * 0.8,
-                          child: TextFormField(
-                            validator: (input) {
-                              if (input!.isEmpty ||
-                                  !input.contains("@") ||
-                                  !input.contains('.')) {
-                                return 'Please enter the correct email address.';
-                              }
-                              return null;
-                            },
-                            keyboardType: TextInputType.emailAddress,
-                            onSaved: (input) => emailController = input!,
-                            style: fieldTextStyle,
-                            decoration: InputDecoration(
-                              prefixIcon: const Icon(
-                                Icons.mail,
-                                color: Colors.black,
-                              ),
-                              contentPadding: const EdgeInsets.symmetric(
-                                  horizontal: 10, vertical: 6),
-                              border: OutlineInputBorder(
-                                borderSide: const BorderSide(
-                                    color: Color.fromARGB(253, 108, 207, 243)),
-                                borderRadius: BorderRadius.circular(10),
-                              ),
-                              focusColor:
-                                  const Color.fromARGB(95, 185, 243, 252),
-                              focusedBorder: const OutlineInputBorder(
-                                borderSide: BorderSide(
-                                  color: Colors.black,
-                                ),
-                              ),
-                              hintText: 'mohil1111bansal@gmail.com',
-                              hintStyle: fadedTextStyle,
-                            ),
-                            cursorColor: Colors.black,
-                            cursorHeight: 20,
-                          ),
-                        ),
-                        SizedBox(
-                            height: MediaQuery.of(context).size.height * 0.02),
+                        // Text('E-mail', style: labelTextStyle),
+                        // SizedBox(
+                        //   width: MediaQuery.of(context).size.width * 0.8,
+                        //   child: TextFormField(
+                        //     validator: (input) {
+                        //       if (input!.isEmpty ||
+                        //           !input.contains("@") ||
+                        //           !input.contains('.')) {
+                        //         return 'Please enter the correct email address.';
+                        //       }
+                        //       return null;
+                        //     },
+                        //     keyboardType: TextInputType.emailAddress,
+                        //     onSaved: (input) => emailController = input!,
+                        //     style: fieldTextStyle,
+                        //     decoration: InputDecoration(
+                        //       prefixIcon: const Icon(
+                        //         Icons.mail,
+                        //         color: Colors.black,
+                        //       ),
+                        //       contentPadding: const EdgeInsets.symmetric(
+                        //           horizontal: 10, vertical: 6),
+                        //       border: OutlineInputBorder(
+                        //         borderSide: const BorderSide(
+                        //             color: Color.fromARGB(253, 108, 207, 243)),
+                        //         borderRadius: BorderRadius.circular(10),
+                        //       ),
+                        //       focusColor:
+                        //           const Color.fromARGB(95, 185, 243, 252),
+                        //       focusedBorder: const OutlineInputBorder(
+                        //         borderSide: BorderSide(
+                        //           color: Colors.black,
+                        //         ),
+                        //       ),
+                        //       hintText: 'mohil1111bansal@gmail.com',
+                        //       hintStyle: fadedTextStyle,
+                        //     ),
+                        //     cursorColor: Colors.black,
+                        //     cursorHeight: 20,
+                        //   ),
+                        // ),
+                        // SizedBox(
+                        //     height: MediaQuery.of(context).size.height * 0.02),
                         Text(
                           'Phone Number',
                           style: labelTextStyle,

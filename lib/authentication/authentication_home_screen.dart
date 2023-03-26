@@ -110,7 +110,9 @@ class _AuthScreenState extends State<AuthScreen> {
     // ignore: unused_local_variable
     String? userId = currentUser?.uid;
     if (currentUser?.uid != null) {
-      Get.off(() => const Identification());
+      Get.off(() => Identification(
+            email: emailController,
+          ));
     }
     // if (users.user.uid != null) {
     //   Get.to(HomeScreen());

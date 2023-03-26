@@ -3,12 +3,14 @@ import 'package:foodie/constant/color.dart';
 import 'package:foodie/constant/styles.dart';
 import 'package:foodie/registration_screen/user_registration_screen.dart';
 // import 'package:get/get_navigation/get_navigation.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 enum Card { donate, ngo }
 
 class Identification extends StatefulWidget {
-  const Identification({super.key});
+  final String email;
+  const Identification({super.key, required this.email});
 
   @override
   State<Identification> createState() => _IdentificationState();
@@ -18,6 +20,7 @@ class _IdentificationState extends State<Identification> {
   Color inactive = Colors.transparent;
   Color active = secondaryColor;
   Card selectedCard = Card.ngo;
+  bool isUser = true;
 
   bool selectedDonate = true;
 
@@ -49,6 +52,7 @@ class _IdentificationState extends State<Identification> {
                         GestureDetector(
                           onTap: () {
                             setState(() {
+                              isUser = true;
                               selectedCard = Card.donate;
                             });
                           },
@@ -84,6 +88,7 @@ class _IdentificationState extends State<Identification> {
                         GestureDetector(
                           onTap: () {
                             setState(() {
+                              isUser = false;
                               selectedCard = Card.ngo;
                             });
                           },
@@ -137,11 +142,18 @@ class _IdentificationState extends State<Identification> {
                       bottom: MediaQuery.of(context).size.height * 0.02,
                       left: MediaQuery.of(context).size.height * 0.14,
                       child: GestureDetector(
-                        onTap: () {
+                        onTap: () async {
+                          await FirebaseFirestore.instance
+                              .collection('users')
+                              .doc(widget.email)
+                              .update({'User': isUser});
+                          // .set({'User': isUser});
                           Navigator.of(context).push(
                             MaterialPageRoute(
                               builder: ((context) {
-                                return UserRegistration();
+                                return UserRegistration(
+                                  email: widget.email,
+                                );
                               }),
                             ),
                           );
