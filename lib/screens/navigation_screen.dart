@@ -19,6 +19,7 @@ class _NavigationScreenState extends State<NavigationScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      extendBody: true,
       body: screens[activeScreen],
       bottomNavigationBar: CurvedNavigationBar(
           // buttonBackgroundColor: mainColor,
@@ -27,8 +28,8 @@ class _NavigationScreenState extends State<NavigationScreen> {
           height: 60,
           index: 0,
           // animationCurve: ,
-          buttonBackgroundColor: softWhite,
-          backgroundColor: primaryCircleColor,
+          buttonBackgroundColor: primaryCircleColor,
+          backgroundColor: Colors.transparent,
           items: [
             const Icon(
               Icons.home_filled,

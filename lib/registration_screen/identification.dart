@@ -20,7 +20,7 @@ class _IdentificationState extends State<Identification> {
   Color inactive = Colors.transparent;
   Color active = secondaryColor;
   Card selectedCard = Card.ngo;
-  bool isUser = true;
+  bool isUser = false;
 
   bool selectedDonate = true;
 

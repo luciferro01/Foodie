@@ -275,7 +275,8 @@ class _AuthScreenState extends State<AuthScreen> {
                     ),
                     GestureDetector(
                       onTap: () {
-                        Get.to(() => ForgotScreen());
+                        Get.to(() => ForgotScreen(),
+                            transition: Transition.cupertino);
                       },
                       child: Container(
                         alignment: Alignment.bottomRight,

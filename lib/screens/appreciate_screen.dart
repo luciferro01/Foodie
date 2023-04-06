@@ -11,6 +11,7 @@ class AppreciateScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      extendBody: true,
       backgroundColor: softWhite,
       appBar: AppBar(
         backgroundColor: mainColor,

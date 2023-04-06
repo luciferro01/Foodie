@@ -1,6 +1,8 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:foodie/screens/appreciate_screen.dart';
 import 'package:get/route_manager.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 import '../constant/color.dart';
 import '../constant/styles.dart';
@@ -22,6 +24,11 @@ class DonateScreen extends StatelessWidget {
     try {
       if (formState.validate()) {
         formState.save();
+
+        // await FirebaseFirestore.instance
+        //     .collection('donation')
+        //     .doc('${FirebaseAuth.instance.currentUser!.email}')
+        //     .set();
         Get.off(() => const AppreciateScreen());
       }
     } catch (e) {
@@ -34,6 +41,7 @@ class DonateScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        extendBody: true,
         backgroundColor: softWhite,
         body: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -120,7 +128,7 @@ class DonateScreen extends StatelessWidget {
                                   color: Colors.black,
                                 ),
                               ),
-                              hintText: 'MOHIL BANSAL',
+                              hintText: 'Wedding Ceremony',
                               hintStyle: fadedTextStyle,
                             ),
                           ),
@@ -140,7 +148,8 @@ class DonateScreen extends StatelessWidget {
                               }
                               return null;
                             },
-                            keyboardType: TextInputType.name,
+                            keyboardType: const TextInputType.numberWithOptions(
+                                decimal: false, signed: false),
                             onSaved: (input) => eventDate = input!,
                             style: fieldTextStyle,
                             decoration: InputDecoration(

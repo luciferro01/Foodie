@@ -121,9 +121,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
     print(currentUser);
     // String? userId = currentUser?.uid;
     if (currentUser?.uid != null) {
-      var docRef = FirebaseFirestore.instance
-          .collection('users')
-          .doc('$emailController');
+      var docRef =
+          FirebaseFirestore.instance.collection('users').doc(emailController);
       Map<String, dynamic> logInData = {
         'email': emailController,
         'password': passwordController,
